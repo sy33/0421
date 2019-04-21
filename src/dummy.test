@@ -1,0 +1,73 @@
+import React, { Component, Fragment } from 'react';
+
+import './App.css';
+
+// 컴포넌트 만드는 방법
+
+// function Profile(props){
+
+//     const style = {
+//         backgroundColor:props.bg, // props 부모가 자식에게 넘겨주는 값
+//         color: props.color
+//     }
+//     return <h1 style={style}>{myName}{myAge}</h1>
+// } // 함수로 작성 예)
+
+
+class Profile extends Component {
+    static: defaultProps = {
+        bg : "blue",
+        coloe: "white"
+    }
+
+    render(){
+        const {bg, color} = this.props;
+
+        const style = {
+            backgroundColor: bg,
+            color: color
+        }
+        return <h1 style={style}>{myName}{myAge}</h1>
+    }
+} 
+
+
+// 클래스로 작성 예
+
+
+const myName = "jack";
+const myAge = 20;
+
+const view = <Fragment>
+<h1 className="crimson">Hello World</h1>
+<h1>Okay</h1>
+<h1 style={{backgroundColor: "crimson", color:"white"}}>{myName} {myAge}</h1>
+<Profile bg="crimson" color="white"></Profile>
+</Fragment>
+
+
+
+
+// jsx 문법
+
+// const myName = "jack";
+// const myAge = 20;
+
+// const view = <Fragment>
+// <h1 className="crimson">Hello World</h1>
+// <h1>Okay</h1>
+// <h1 style={{backgroundColor: "crimson", color:"white"}}>{myName} {myAge}</h1>
+// </Fragment>
+
+// const view = <div><h1>Hello World</h1><h1>Okay</h1></div>
+
+// const view2 = React.createElement(
+//     'hi',
+//     {className: 'greating'},
+//     'Hello World'
+// );
+
+
+
+
+export default App;

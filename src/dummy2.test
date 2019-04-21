@@ -1,0 +1,64 @@
+import React, { Component, Fragment } from 'react';
+
+import './App.css';
+
+
+
+class NumberItem extends Component { //App의 함수를 호출 받음 (App의 onNumberClick을 NumberItem에 넘김)
+  static defaultProps = {
+    number: 0,
+  }
+
+  onClick = (e) =>{ 
+
+    if(this.props.onNumberClick){ //props에 onClick이 있으면
+      this.props.onNumberClick(e); // onclick  속성을 호출 // <div></div> 넘기는 이벤트 객체
+    }
+  }
+
+
+  render(){
+    const {number} = this.props;
+    const style = {
+      backgroundColor:"crimson",
+      color:"white",
+      padding:"16px",
+      fontWeight:"bold",
+      fontSize:"30px",
+      display:"inline-block",
+    }
+    return <div style={style} onClick={this.onClick}>{number}</div>
+  }
+}
+
+
+
+class App extends Component {
+
+  state = {
+    number: 7
+  } 
+
+  onNumberClick = ()=>{
+
+    this.setState({
+      number: this.state.number+1
+    })
+
+  }
+
+
+
+  render(){
+
+    const {number} = this.state;
+
+    return <NumberItem number= {number} onClick={this.onClick}/>;
+
+  }
+
+
+}
+
+
+export default App;
